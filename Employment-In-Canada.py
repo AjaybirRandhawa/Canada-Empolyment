@@ -16,3 +16,26 @@ df2["Total"] = df2.sum(axis=1)
 dfFemale = dfFemale.join(df2["Total"])
 dfFemale = dfFemale.drop(columns=['sex', 'variable'])
 dfFemale.head()
+dfMale['month'] = pd.to_datetime(dfMale['month'].astype(str), format='%Y%')
+dfMale.reset_index(drop=True, inplace=True)
+dfMale.columns=['Year', 'Alberta','British Columbia','Manitoba','New Burnswick','Newfoundland and Labrador','Nova Scotia','Ontario','PEI','Quebec','Saskatchewan','Total']
+dfFemale['month'] = pd.to_datetime(dfFemale['month'].astype(str), format='%Y%')
+dfFemale.reset_index(drop=True, inplace=True)
+dfFemale.columns=['Year', 'Alberta','British Columbia','Manitoba','New Burnswick','Newfoundland and Labrador','Nova Scotia','Ontario','PEI','Quebec','Saskatchewan','Total']
+
+#Group data by year for Males
+grouped = dfMale.groupby(dfMale['Year'].map(lambda x: x.year), as_index=False)
+
+start = dfMale.iloc[0:1]
+dfMale = grouped.last()
+dfMale = start.append(dfMale)
+dfMale.reset_index(drop=True, inplace=True)
+dfMale[['TC%']]=dfMale.sort_values(['Year'])[['Total']].pct_change()*100
+#Group data by year for Females
+grouped = dfFemale.groupby(dfFemale['Year'].map(lambda x: x.year), as_index=False)
+
+start = dfFemale.iloc[0:1]
+dfFemale = grouped.last()
+dfFemale = start.append(dfFemale)
+dfFemale.reset_index(drop=True, inplace=True)
+dfFemale[['TC%']]=dfFemale.sort_values(['Year'])[['Total']].pct_change()*100
