@@ -39,3 +39,32 @@ dfFemale = grouped.last()
 dfFemale = start.append(dfFemale)
 dfFemale.reset_index(drop=True, inplace=True)
 dfFemale[['TC%']]=dfFemale.sort_values(['Year'])[['Total']].pct_change()*100
+
+plt.style.use('seaborn-whitegrid')
+plt.figure(figsize=(15,4))
+plt.plot( 'Year', 'Total', data=dfMale, marker='o', markerfacecolor='blue', markersize=5, color='skyblue', linewidth=4, label="Male")
+plt.plot('Year', 'Total', data=dfFemale, marker='o', markerfacecolor='green', markersize=5, color='green', linewidth=4, label="Female")
+plt.legend()
+plt.xlabel('Year')
+plt.ylabel('Total Employed')
+plt.title('Annual Employment Across Canada Jan 1976 - Nov 2019')
+
+plt.style.use('seaborn-whitegrid')
+plt.figure(figsize=(15,4))
+plt.plot( 'Year', 'TC%', data=dfMale, marker='o', markerfacecolor='blue', markersize=5, color='skyblue', linewidth=4, label="Male")
+plt.plot('Year', 'TC%', data=dfFemale, marker='o', markerfacecolor='green', markersize=5, color='green', linewidth=4, label="Female")
+plt.legend()
+plt.xlabel('Year')
+plt.ylabel('Total Growth Rate')
+plt.title('Employment Growth Rate Across Canada Jan 1976 - Nov 2019')
+
+plt.style.use('seaborn-whitegrid')
+plt.figure(figsize=(15,4))
+dfMale = dfMale.iloc[35:]
+dfFemale = dfFemale.iloc[35:]
+plt.plot( 'Year', 'TC%', data=dfMale, marker='o', markerfacecolor='blue', markersize=5, color='skyblue', linewidth=4, label="Male")
+plt.plot('Year', 'TC%', data=dfFemale, marker='o', markerfacecolor='green', markersize=5, color='green', linewidth=4, label="Female")
+plt.legend()
+plt.xlabel('Year')
+plt.ylabel('Total Growth Rate')
+plt.title('Annual Growth Rate Across Canada In The Last Decade')
