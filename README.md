@@ -1,5 +1,5 @@
 # Empolyment Trends in Canada
-Data Science project involving data containing Canada's empolyment from 1976-2019. Goal is to visualize trends regarding gender employemtn over time.
+Data Science project involving data containing Canada's empolyment from 1976-2019. Goal is to visualize trends regarding gender employment over time.
 These results are not official by any means and are done with the sole purpose of expanding my usage with datasets.
 
 ## Dataset:
@@ -14,3 +14,8 @@ Male Dataset:
 ![](Results/dfMalehead.png)
 Female Dataset:
 ![](Results/dfFemalehead.png)
+Annual Employment Graph
+![](Results/firstGraph.png)
+Growth Rate Graph
+![](Results/secondGraph.png)
+Growth Rate In A Decade
