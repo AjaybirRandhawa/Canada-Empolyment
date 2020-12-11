@@ -19,3 +19,4 @@ Annual Employment Graph
 Growth Rate Graph
 ![](Results/secondGraph.png)
 Growth Rate In A Decade
+![](Results/thirdGraph.png)
